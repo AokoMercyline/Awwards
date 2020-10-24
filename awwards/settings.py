@@ -77,8 +77,14 @@ WSGI_APPLICATION = 'awwards.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.postgregl.psycopg2',
-        'NAME':'awwards',
+        'ENGINE': 'django.db.postgresgl.psycopg2',
+        'NAME':config('DB_NAME'),
+        'DB_USER':config('DB_USER'),
+        'DB_PASSWORD':config('DB_PASSWORD'),
+        'DB_HOST':config('DB_HOST'),
+        'MODE':config('MODE'),
+        'ALLOWED_HOSTS':config('ALLOWED_HOSTS'),
+        'DISABLE_COLLECTSTATIC':config('DISABLE_COLLECTSTATIC')
     }
 }
 
@@ -107,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
