@@ -1,16 +1,26 @@
 
-{% extends "blog/base.html" %}
+{% extends "awwa/base.html" %}
 {% block content %}
     {% for post in posts %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author }}</a>
-              <small class="text">{{ post.date_posted|date:"F d, Y" }}</small>
+   <div class="container">
+      <div class="row" style="padding-top: 10%;">
+         <div class="col-md-4">
+            <div class="card">
+               <div class="card-body">
+                 <img class="img-responsive" src="{{post.image.url }}" width="100%";>
+                 <a class="mr-2" href="#">{{ post.technologies }}</a>
+                 <small class="text"> Date posted: {{ post.post_date|date:"F d, Y" }}</small>
+                 </div>
+                 <h2 ><a class="article-title" href="#"> Title: {{ post.title }}</a></h2>
+                 <p class="article-content"> Description: {{ post.desc }}</p>
+               </div>
+               <div class="card-footer">
+                 <a href="{{ post.link }}" class="btn btn-info" target="_blank">Visit site</a>
+                 <p><cite>By <strong >{{post.user}}</strong></cite></p>
+               </div>
             </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
-          </div>
-        </article>
+         </div>
+      </div>
+   </div>
     {% endfor %}
 {% endblock content %}
