@@ -18,22 +18,23 @@
 </head>
 <body>
     <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <nav style="padding: 20px;" class="navbar navbar-expand-md navbar-light bg-light fixed-top ">
           <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'awwa-home' %}">Awwwards</a>
+            <a style="color: black;" class="navbar-brand mr-4" href="{% url 'awwa-index' %}">Awwwards</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href="{% url 'awwa-home' %}">Home</a>
-                <!-- <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a> -->
+                <a style="color: black;" class="nav-item nav-link" href="{% url 'awwa-index' %}">Home</a>
               </div>
               <!-- Navbar Right Side -->
-              <div class="navbar-nav">
-                <a class="nav-item nav-link" href="#">Login</a>
-                <a class="nav-item nav-link" href="#">Register</a>
-              </div>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li style="color: black;" class="breadcrumb-item"><a href="#">Login</a></li>
+                  <li style="color: black;" class="breadcrumb-item active" aria-current="page"><a href="#">Register</a></li>
+                </ol>
+              </nav>
             </div>
           </div>
         </nav>

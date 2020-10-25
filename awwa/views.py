@@ -1,9 +1,10 @@
 from django.shortcuts import render
+from .models import Post
     
 def index(request):
     context = {
-        'posts': posts #list of dict details for all post
+        'posts': Post.objects.all()
     }
 
-    return render(request, 'awwa/index.html', context, {'title': title})
+    return render(request, 'index.html', context)
 
