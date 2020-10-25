@@ -32,7 +32,7 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li style="color: black;" class="breadcrumb-item"><a href="#">Login</a></li>
-                  <li style="color: black;" class="breadcrumb-item active" aria-current="page"><a href="#">Register</a></li>
+                  <li style="color: black;" class="breadcrumb-item active" aria-current="page"><a href="{% url 'register' %}">Register</a></li>
                 </ol>
               </nav>
             </div>
@@ -40,6 +40,14 @@
         </nav>
       </header>
     <div class="container">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+
+          </div>
+        {% endfor %}
+      {% endif %}
         {% block content %}
         
         {% endblock %}
