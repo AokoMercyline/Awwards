@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,14 +80,14 @@ WSGI_APPLICATION = 'awwards.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.postgresgl.psycopg2',
-        'NAME':config('DB_NAME'),
-        'DB_USER':config('DB_USER'),
-        'DB_PASSWORD':config('DB_PASSWORD'),
-        'DB_HOST':config('DB_HOST'),
-        'MODE':config('MODE'),
-        'ALLOWED_HOSTS':config('ALLOWED_HOSTS'),
-        'DISABLE_COLLECTSTATIC':config('DISABLE_COLLECTSTATIC')
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':os.environ.get('DB_NAME'),
+        'DB_USER':os.environ.get('DB_USER'),
+        'DB_PASSWORD':os.environ.get('DB_PASSWORD'),
+        'DB_HOST':os.environ.get('DB_HOST'),
+        'MODE':os.environ.get('MODE'),
+        'ALLOWED_HOSTS':os.environ.get('ALLOWED_HOSTS'),
+        
     }
 }
 
