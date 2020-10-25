@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+    
 def index(request):
-    return HttpResponse('')
+    context = {
+        'posts': posts #list of dict details for all post
+    }
+
+    return render(request, 'awwa/index.html', context, {'title': title})
+
