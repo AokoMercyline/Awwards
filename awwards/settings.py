@@ -137,4 +137,5 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'awwa-index'
+LOGIN_URL = 'login'
 
