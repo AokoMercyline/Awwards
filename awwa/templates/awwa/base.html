@@ -29,12 +29,15 @@
                 <a style="color: black;" class="nav-item nav-link" href="{% url 'awwa-index' %}">Home</a>
               </div>
               <!-- Navbar Right Side -->
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li style="color: black;" class="breadcrumb-item"><a href="#">Login</a></li>
-                  <li style="color: black;" class="breadcrumb-item active" aria-current="page"><a href="{% url 'register' %}">Register</a></li>
-                </ol>
-              </nav>
+              <div class="navbar-nav">
+                {% if user.is_authenticated %}
+                <a  style="color: black;" class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                  <a style="color: black;" class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                  <a style="color: black;" class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                {% endif %}
+              </div>
+              
             </div>
           </div>
         </nav>
