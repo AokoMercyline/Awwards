@@ -22,7 +22,7 @@ def register(request):
 def profile(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile.first())
         if user_form.is_valid and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -30,12 +30,13 @@ def profile(request):
             return redirect('profile')
     else:
         user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpdateForm(instance=request.user.profile)
+        # import pdb; pdb.set_trace()
+        profile_form = ProfileUpdateForm(instance=request.user.profile.first())
     context = {
         'user_form': user_form,
         'profile_form': profile_form
     }
-    return render(request, 'profile.html', context)
+    return render(request, 'users/profile.html', context)
 
 @login_required(login_url='/accounts/login/')
 def update_profile(request):
@@ -45,12 +46,14 @@ def update_profile(request):
         if user_form.is_valid():
             user_form.save()
             profile_form.save()
-            return redirect('home')
+            return redirect('index')
     else:
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user)
+        # print(dir(profile_form))
+        
         context = {
             'user_form': user_form,
             'profile_form': profile_form
         }
-    return render(request, 'update_profile.html', context)
+    return render(request, 'profile.html', context)
