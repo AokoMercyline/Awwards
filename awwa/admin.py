@@ -4,5 +4,5 @@ admin.site.site_header='Aoko Developer'
 
 
 admin.site.register(Post)
-# admin.site.register(Profile)
+
 
