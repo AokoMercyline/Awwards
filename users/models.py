@@ -11,6 +11,7 @@ class Profile(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     bio = models.TextField(default="Hello there!")
     email = models.CharField(blank = True, max_length = 100)
+    
     def __str__(self):
         return  f'{self.user.username}' 
 

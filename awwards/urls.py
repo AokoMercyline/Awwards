@@ -19,13 +19,21 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
+from awwa.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('post/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
+    # path('', PostListView.as_view(), name='index'),
     path('register/', user_views.register, name='register'),
-    path('profile/', user_views.profile, name='profile'),
+    # path('profile/', user_views.profile, name='profile'),
+    # path('update/profile', views.updateprofile, name='update'),
+    # path('post/new/', views.post_new, name='post_new'),
+    # path('search/', views.search_results, name='search_results'),
+    # path('vote/(<post_id>\d+)?', views.vote, name='vote'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('ratings/', include('star_ratings.urls', namespace='ratings')),
     path('', include('awwa.urls')),
     
 ]

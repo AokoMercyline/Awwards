@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'awwa',
     'users',
     'crispy_forms',
+    'star_ratings',
     
 ]
 
@@ -86,12 +87,12 @@ WSGI_APPLICATION = 'awwards.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':os.environ.get('DB_NAME'),
-        'DB_USER':os.environ.get('DB_USER'),
-        'DB_PASSWORD':os.environ.get('DB_PASSWORD'),
-        'DB_HOST':os.environ.get('DB_HOST'),
-        'MODE':os.environ.get('MODE'),
-        'ALLOWED_HOSTS':os.environ.get('ALLOWED_HOSTS'),
+        'NAME': "awward",
+        'DB_USER': "mercy",
+        'DB_PASSWORD': "1234",
+        # 'DB_HOST':os.environ.get('DB_HOST'),
+        # 'MODE':os.environ.get('MODE'),
+        # 'ALLOWED_HOSTS':os.environ.get('ALLOWED_HOSTS'),
         
     }
 }
