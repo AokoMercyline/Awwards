@@ -23,14 +23,8 @@ from awwa.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('post/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
-    # path('', PostListView.as_view(), name='index'),
     path('register/', user_views.register, name='register'),
-    # path('profile/', user_views.profile, name='profile'),
-    # path('update/profile', views.updateprofile, name='update'),
-    # path('post/new/', views.post_new, name='post_new'),
-    # path('search/', views.search_results, name='search_results'),
-    # path('vote/(<post_id>\d+)?', views.vote, name='vote'),
+    path('profile/', user_views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
@@ -38,5 +32,8 @@ urlpatterns = [
     
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

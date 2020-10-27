@@ -10,6 +10,7 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
+            # profile = Profile.objects.create(user=request.user)
             username = form.cleaned_data.get('username')
             messages.success(request, f'Your account has been created !You can now login {username}!')
             return redirect('login')
@@ -22,7 +23,7 @@ def register(request):
 def profile(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile.first())
+        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         if user_form.is_valid and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -31,7 +32,7 @@ def profile(request):
     else:
         user_form = UserUpdateForm(instance=request.user)
         # import pdb; pdb.set_trace()
-        profile_form = ProfileUpdateForm(instance=request.user.profile.first())
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
     context = {
         'user_form': user_form,
         'profile_form': profile_form

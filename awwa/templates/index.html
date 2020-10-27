@@ -5,15 +5,17 @@
 {% block styles %}
 {% endblock%}
 {% block content %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
 
-    <div class="container-fluid">
+    <div class="container-fluid"  style="padding-top: 20%;">
        <!-- landing page image -->
     </div>
 
     <div class="container">
       <div class="row">
          <div class="col-md-4">
-            <a class="btn btn-info" href="{%url 'post_new'%}">Submit your site here   
+            <a class="btn btn-info" href="#">Submit your site here   
             </a>
          </div>
          <div class="col-md-8">
@@ -32,30 +34,33 @@
 
    <div class="container">
       <div class="row" style="padding-top: 10%;">
-         {% for post in posts %}
+      </div>
+         
          <div class="col-md-4">
             <div class="card">
-               <figure><a target="blank" href="{%url 'vote' post_id=post.id%}"><img class="img-responsive"
-                  src="{{post.image.url }}" width="100%" ; height="200px" ;></a></figure>
+               {% for post in posts %}
+               
                <div class="card-body">
+                  {% if post.image %}
                  <img class="img-responsive" src="{{post.image.url }}" width="100%";>
+                  {% endif %}
                  <a class="mr-2" href="#">{{ post.technologies }}</a>
                  <small class="text"> Date posted: {{ post.post_date|date:"F d, Y" }}</small>
                  </div>
                  <h2 ><a class="article-title" href="#"> Title: {{ post.title }}</a></h2>
                  <p class="article-content"> Description: {{ post.desc }}</p>
                </div>
-               {% ratings post %}
                <div class="card-footer">
                  <a href="{{ post.link }}" class="btn btn-info" target="_blank">Visit site</a>
                  <p><cite>By <strong >{{post.user}}</strong></cite></p>
                </div>
+               <p>{% ratings post %}</p>
+            
             </div>
          {% endfor %}
          </div>
       </div>
    </div>
+   <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 
-
-   
 {% endblock content %}

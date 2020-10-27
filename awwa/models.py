@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
-from django.db.models import Q
+# from django.db.models import Q
 
 class Post (models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
@@ -32,4 +32,5 @@ class Post (models.Model):
 
 
     def get_absolute_url(self): 
-        return reverse('post_detail', args=[str(self.id)])
+        # return reverse('post_detail', args=[str(self.id)])
+        return reverse('post-detail', kwargs={'pk': self.pk})

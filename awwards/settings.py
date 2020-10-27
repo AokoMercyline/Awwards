@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'users',
     'crispy_forms',
     'star_ratings',
+    'bootstrap3',
     
 ]
 
@@ -145,6 +146,12 @@ MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'awwa-index'
+LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
+
+STAR_RATINGS_RERATE = False
+STAR_RATINGS_RANGE = 5
+STAR_RATINGS_ANONYMOUS = False
+
+
 
