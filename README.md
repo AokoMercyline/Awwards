@@ -1,3 +1,5 @@
+:satisfied:
+
 # PROJECT NAME
 ## Awwards
 
@@ -11,6 +13,10 @@ This is an application that allow user to post a project he/she has created and 
 
 * User must sign in to be able to post projects and review projects for others users.
 * User is able to post project.
+
+## Project live site
+  This is the live .[ Click for the demo](https://mercyawwards.herokuapp.com/)
+ ![Image](static/images/awwards.jpg)
 
 ## FEATURES
 
