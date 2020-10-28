@@ -10,6 +10,12 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Bentham&family=Contrail+One&family=Italianno&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Bentham&family=Italianno&display=swap" rel="stylesheet">
+
+
+
     {% if  title %}
         <title>Awwards {{ title }}</title>
     {% else %}
@@ -18,26 +24,25 @@
 </head>
 <body>
     <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-light fixed-top">
           <div class="container">
-            <i class="fa fa-bars fa-2x" aria-hidden="true" ><a class="navbar-brand " style="color: black; font-size: 40px;" href="/">awwwards.</a></i>
+            <i class="fa fa-bars fa-2x" aria-hidden="true" >MENU</i>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
+            <form action="{% url 'search_results' %}">
+                <input type="text" placeholder="Search.." name="username">
+                <button type="submit" value="Search"><i class="fa fa-search"></i></button>
+              </form>
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav ml-auto">
-                
+                <a class="navbar-brand " style="color: black; font-size: 40px;" href="/">awwwards</a>
               </div>
-              <form action="{% url 'search_results' %}">
-                <div class="form-group mt-3">
-                  <input type="text" name="username" class="">
-                  <span><input type="submit" value="Search" class="btn-sm"></span>
-                </div>
-              </form>
+            
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
                 {% if user.is_authenticated %}
-                <a class="nav-item nav-link" href="{% url 'post-create' %}" style="color: black;">New Post</a>
+                <!-- <a class="nav-item nav-link" href="{% url 'post-create' %}" style="color: black;">New Post</a> -->
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <img class="rounded-circle" width="30" height="30" src="{{ user.profile.image.url }}">
@@ -46,6 +51,10 @@
                     <a class="nav-item nav-link" href="{% url 'logout' %}" style="color: black;">Logout</a>
                   </div>
                 </li>
+                <div class="">
+                  <a class="btn btn-info" style="border-radius: 50px; color: black;" href="{% url 'post-create' %}">Submit your site here   
+                  </a>
+               </div> 
                 {% else %}
                   <a class="nav-item nav-link" style="color: black;" href="{% url 'login' %}">Login</a>
                   <a class="nav-item nav-link" style="color: black;" href="{% url 'register' %}">Register</a>
