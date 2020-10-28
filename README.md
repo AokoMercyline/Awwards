@@ -64,4 +64,6 @@ This is an application that allow user to post a project he/she has created and 
 contact me aokomercyline34@gmail.com
 
 ## LICENSE
-
+The project is under[MIT license](/blob/master/LICENSE)
+Copyright &copy; 2019.All rigths reserved
+  
