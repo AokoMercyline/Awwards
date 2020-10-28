@@ -68,10 +68,7 @@ ROOT_URLCONF = 'awwards.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'users/templates',
-            BASE_DIR / 'awwa/templates'
-            ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
