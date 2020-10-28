@@ -10,9 +10,9 @@ def index(request):
     try: 
         posts= Post.objects.all()
         posts = posts[::-1]
-        # one_post = random.randint(0, len(posts)-1)
-        # random_post= posts[one_post]
-        # print(random_post)
+        one_post = random.randint(0, len(posts)-1)
+        random_post= posts[one_post]
+        print(random_post)
     except Post.DoesNotExist:
         posts = None
 
@@ -26,7 +26,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['image', 'title', 'description', 'image_url','author','date_posted']
+    fields = ['image', 'title', 'desc', 'link','technologies', 'post_date', 'user']
     template_name = 'awwa/post_form.html'
 
     def form_valid(self, form):
