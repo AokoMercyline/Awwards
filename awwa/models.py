@@ -11,7 +11,7 @@ class Post (models.Model):
     desc= models.TextField()
     post_date = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to='awwa/')
-    link = models.CharField(max_length=70)
+    link = models.URLField(max_length=70)
     technologies = models.CharField(max_length=100)
 
 
